@@ -148,7 +148,7 @@ class Imageclean extends Command
         $ids = $this->getImageAttributeIds();
         $imageAttributeIds = implode(', ',$ids);
         $table = $this->db->getTableName('catalog_product_entity_varchar');
-        $sql = "SELECT value FROM $table WHERE attribute_id in ($imageAttributeIds)";
+        $sql = "SELECT DISTINCT value FROM $table WHERE attribute_id in ($imageAttributeIds)";
         return $this->db->fetchCol($sql);
     }
 
